@@ -1,5 +1,5 @@
-import React, { useState } from 'react';
-import './Modal.css';
+import React, { useState } from "react";
+import "./Modal.css";
 
 interface ModalProps {
   isOpen: boolean;
@@ -9,13 +9,13 @@ interface ModalProps {
 }
 
 const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title }) => {
-  const [inputText, setInputText] = useState('');
+  const [inputText, setInputText] = useState("");
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
     if (inputText.trim()) {
       onSubmit(inputText.trim());
-      setInputText('');
+      setInputText("");
       onClose();
     }
   };
@@ -51,7 +51,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, onSubmit, title }) => {
             />
           </div>
           <div className="modal-actions">
-            <button type="button" onClick={onClose} className="btn btn-secondary">
+            <button
+              type="button"
+              onClick={onClose}
+              className="btn btn-secondary"
+            >
               Cancel
             </button>
             <button type="submit" className="btn btn-primary">

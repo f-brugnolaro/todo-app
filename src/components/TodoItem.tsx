@@ -1,6 +1,6 @@
-import React from 'react';
-import type { Todo } from '../types/todo';
-import './TodoItem.css';
+import React from "react";
+import type { Todo } from "../types/todo";
+import "./TodoItem.css";
 
 interface TodoItemProps {
   todo: Todo;
@@ -10,19 +10,19 @@ interface TodoItemProps {
 
 const TodoItem: React.FC<TodoItemProps> = ({ todo, onDelete, onToggle }) => {
   return (
-    <div className={`todo-item ${todo.completed ? 'completed' : ''}`}>
+    <div className={`todo-item ${todo.completed ? "completed" : ""}`}>
       <div className="todo-content">
         <input
           type="checkbox"
           checked={todo.completed}
           onChange={() => onToggle(todo.id)}
           className="todo-checkbox"
-          aria-label={`Mark "${todo.text}" as ${todo.completed ? 'incomplete' : 'complete'}`}
+          aria-label={`Mark "${todo.text}" as ${
+            todo.completed ? "incomplete" : "complete"
+          }`}
         />
         <span className="todo-text">{todo.text}</span>
-        <span className="todo-date">
-          {todo.createdAt.toLocaleDateString()}
-        </span>
+        <span className="todo-date">{todo.createdAt.toLocaleDateString()}</span>
       </div>
       <button
         onClick={() => onDelete(todo.id)}

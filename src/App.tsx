@@ -1,8 +1,8 @@
-import { useState } from 'react';
-import type { Todo } from './types/todo';
-import TodoItem from './components/TodoItem';
-import Modal from './components/Modal';
-import './App.css';
+import { useState } from "react";
+import type { Todo } from "./types/todo";
+import TodoItem from "./components/TodoItem";
+import Modal from "./components/Modal";
+import "./App.css";
 
 function App() {
   const [todos, setTodos] = useState<Todo[]>([]);
@@ -19,13 +19,15 @@ function App() {
   };
 
   const deleteTodo = (id: string) => {
-    setTodos(todos.filter(todo => todo.id !== id));
+    setTodos(todos.filter((todo) => todo.id !== id));
   };
 
   const toggleTodo = (id: string) => {
-    setTodos(todos.map(todo =>
-      todo.id === id ? { ...todo, completed: !todo.completed } : todo
-    ));
+    setTodos(
+      todos.map((todo) =>
+        todo.id === id ? { ...todo, completed: !todo.completed } : todo
+      )
+    );
   };
 
   const openModal = () => setIsModalOpen(true);
@@ -48,7 +50,7 @@ function App() {
           </div>
         ) : (
           <div className="todos-list">
-            {todos.map(todo => (
+            {todos.map((todo) => (
               <TodoItem
                 key={todo.id}
                 todo={todo}
